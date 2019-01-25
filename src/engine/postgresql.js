@@ -23,6 +23,7 @@ export default class PostgreSQL extends Core {
           console.error("connection error", err.stack);
         } else {
           console.log("connected");
+          super.dump();
         }
       });
     } catch (er) {

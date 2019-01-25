@@ -2,6 +2,7 @@ import { isEmpty } from "lodash";
 import { existsSync } from "fs";
 import Core from "./engine/core";
 import PostgreSQL from "./engine/postgresql";
+
 export default class mOrm {
   constructor() {
     this.config = {};
@@ -15,12 +16,6 @@ export default class mOrm {
     if (isEmpty(dbConfig)) {
       console.log(this.configPathName);
       console.log("plop", await existsSync(this.configPathName));
-
-      // if (existsSync(configPathName)) {
-      //   console.log("hello");
-      // } else {
-      //   // ici
-      // }
     }
     if (typeof dbConfig === "string") {
       // regx
