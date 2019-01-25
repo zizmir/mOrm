@@ -27,10 +27,16 @@ export default class mOrm {
       this.config = dbConfig;
     }
 
-    const { host, port, username, pass } = this.config;
+    const { host, port, username, pass, database } = this.config;
     switch (this.config.type) {
       case "postgres":
-        this.dbInstance = new PostgreSQL({ host, port, username, pass });
+        this.dbInstance = new PostgreSQL({
+          host,
+          port,
+          username,
+          pass,
+          database
+        });
         break;
     }
     await this.dbInstance.initialize();

@@ -1,9 +1,13 @@
+import { dump } from "../engine/core";
+
 export function mDump(obj, andDie = false) {
-  import { dump, dd } from "../engine/core";
-  if (typeof obj === "function") {
+  if (obj) {
     obj = {
-      type: "function",
-      name: obj.name
+      host: obj.host,
+      port: obj.port,
+      username: obj.username,
+      password: obj.password,
+      database: obj.database
     };
   }
 
