@@ -10,6 +10,5 @@ export function mDump(obj, andDie = false) {
       database: obj.database
     };
   }
-
-  dump(obj);
+  dump();
 }
