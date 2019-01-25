@@ -1,6 +1,20 @@
+//postgres://bouznir:@localhost:5432/express.island.dev
 import mOrm from "./mOrm";
-import { Core } from "./engine/core";
+import Core from "./engine/core";
+import Student from "./entities/student";
 
-let db = new mOrm();
+// Let's Rock!
+const orm = new mOrm();
 
-let result = db.createConnection("postgres://delafuente:@localhost:5432/morm");
+orm.createConnection({
+  type: "postgres",
+  host: "localhost",
+  port: 5432,
+  username: "delafuente",
+  password: "",
+  database: "morm",
+  synchronize: true,
+  entities: [Student]
+});
+
+// or:
