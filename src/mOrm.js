@@ -1,5 +1,7 @@
 import { isEmpty } from "lodash";
 import { existsSync } from "fs";
+import { Core } from "./engine/core";
+import { PostgreSQL } from "./engine/postgresql";
 export default class mOrm {
   constructor() {
     this.config = {};
@@ -27,14 +29,12 @@ export default class mOrm {
       this.config = { type, host, port, username, password, database };
       console.log(this.config);
     }
+    const { type, host, port, username, pass } = this.config;
+    switch (this.config.type) {
+      case "postgres":
+        this.dbInstance = new PostgreSQL({ host, port, username, pass });
+        break;
+    }
+    await this.dbInstance.initialize();
   }
-  //
-  // const { host, port , username , pass } = this.config
-  // switch (type) {
-  //   case 'postgres':
-  //       this.dbInstance = new PostgresSQL({ host, port , username , pass })
-  //     break;
-  //   default:
-  //
-  // }
 }
