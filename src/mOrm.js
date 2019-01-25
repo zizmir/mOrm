@@ -7,7 +7,6 @@ export default class mOrm {
     this.config = {};
     this.configPathName = "./mOrm.config.js";
     this.dbInstance = {};
-    console.log("toto");
   }
   // { host, port , username , pass }
   // postgres
@@ -32,15 +31,8 @@ export default class mOrm {
     } else {
       this.config = dbConfig;
     }
-    const { host, port, username, pass, type } = this.config;
-    switch (type) {
-      case "postgres":
-        console.log("this is postgres");
-        //       this.dbInstance = new PostgresSQL({ host, port , username , pass })
-        break;
-      default:
-    }
-    const { type, host, port, username, pass } = this.config;
+
+    const { host, port, username, pass } = this.config;
     switch (this.config.type) {
       case "postgres":
         this.dbInstance = new PostgreSQL({ host, port, username, pass });

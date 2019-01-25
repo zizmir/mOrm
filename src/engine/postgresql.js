@@ -18,7 +18,13 @@ export default class PostgreSQL extends Core {
     });
 
     try {
-      await this.client.connect();
+      await this.client.connect(err => {
+        if (err) {
+          console.error("connection error", err.stack);
+        } else {
+          console.log("connected");
+        }
+      });
     } catch (er) {
       throw new Error(`Database ${host} doesn't exist`);
     }
