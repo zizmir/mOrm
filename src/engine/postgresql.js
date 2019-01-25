@@ -3,9 +3,9 @@ import Core from "./core";
 
 export default class PostgreSQL extends Core {
   constructor(option) {
-    this.option = option;
     super(option);
   }
+
   async initialize() {
     const { host, port, username, password, database } = this;
 
