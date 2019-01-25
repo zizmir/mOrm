@@ -1,15 +1,22 @@
 import { isEmpty } from "lodash";
+import { existsSync } from "fs";
 export default class mOrm {
   constructor() {
     this.config = {};
   }
-  configPathName = "./mOrm.config.js";
   // { host, port , username , pass }
   // postgres
   async createConnection(dbConfig = {}) {
-    // regex
+    let configPathName = "./mOrm.config.js";
     // check
     if (isEmpty(dbConfig)) {
+      console.log("plop", existsSync(configPathName));
+
+      // if (existsSync(configPathName)) {
+      //   console.log("hello");
+      // } else {
+      //   // ici
+      // }
     }
     if (typeof dbConfig === "string") {
       // postgres://user:pass@host:port/db
