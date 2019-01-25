@@ -1,7 +1,7 @@
 import { isEmpty } from "lodash";
 import { existsSync } from "fs";
-import { Core } from "./engine/core";
-import { PostgreSQL } from "./engine/postgresql";
+import Core from "./engine/core";
+import PostgreSQL from "./engine/postgresql";
 export default class mOrm {
   constructor() {
     this.config = {};
